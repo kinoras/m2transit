@@ -1,0 +1,6 @@
+# .prettierignore
+node_modules
+.next
+public
+yarn.lock
+package-lock.json
