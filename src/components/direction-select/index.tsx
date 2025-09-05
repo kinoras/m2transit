@@ -53,7 +53,8 @@ const DirectionSelect = ({
             {/* Arrow icon */}
             <FontAwesomeIcon
                 icon={faArrowRight}
-                className="text-secondary scale-125"
+                className="text-secondary"
+                style={{ height: 20 }} // Prevents flickering (see Next.js Issue #48879)
             />
 
             {/* Destination location selector */}
