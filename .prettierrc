@@ -11,6 +11,10 @@
     "importOrder": [
         "^(react|next)(/.*)?$",
         "<THIRD_PARTY_MODULES>",
+        "^@/layouts/(.*)$",
+        "^@/components/(.*)$",
+        "^@/stores/(.*)$",
+        "^@/types/(.*)$",
         "^@/(.*)$",
         "^[./]"
     ],

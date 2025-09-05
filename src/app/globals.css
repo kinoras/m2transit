@@ -1,26 +1,33 @@
 @import 'tailwindcss';
 
+@import 'swiper/css';
+
 :root {
-    --background: #ffffff;
-    --foreground: #171717;
+    color-scheme: light dark;
+
+    --background: light-dark(var(--color-zinc-100), var(--color-zinc-900));
+    --background-card: light-dark(var(--color-white), var(--color-zinc-800));
+
+    --foreground: light-dark(var(--color-zinc-900), var(--color-zinc-50));
+    --foreground-danger: light-dark(var(--color-red-500), var(--color-red-400));
 }
 
-@theme inline {
-    --color-background: var(--background);
-    --color-foreground: var(--foreground);
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
-}
+@theme {
+    /* Background colors */
+    --color-card: light-dark(var(--color-white), var(--color-zinc-800));
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
-    }
+    /* Forground colors */
+    --color-primary: var(--foreground);
+    --color-secondary: color-mix(in oklab, var(--foreground) 60%, transparent);
+    --color-tertiary: color-mix(in oklab, var(--foreground) 30%, transparent);
+    --color-danger: var(--foreground-danger);
+
+    /* Radius */
+    --radius-primary: var(--radius-2xl);
+    --radius-secondary: var(--radius-xl);
 }
 
 body {
     background: var(--background);
     color: var(--foreground);
-    font-family: Arial, Helvetica, sans-serif;
 }
