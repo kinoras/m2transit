@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { memo, useCallback, useEffect, useState } from 'react'
 
 import clsx from 'clsx'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -17,7 +17,7 @@ const LocationSelect = ({
     className,
     options,
     onChange,
-    ...otherProps
+    ...restProps
 }: LocationSelectProps) => {
     const [swiper, setSwiper] = useState<SwiperClass | null>(null)
 
@@ -29,7 +29,7 @@ const LocationSelect = ({
         [options, onChange]
     )
 
-    // Update selection in two scenarios:
+    // Also update selection in two scenarios:
     useEffect(() => {
         if (swiper) handleSlideChange(swiper.realIndex)
     }, [
@@ -44,7 +44,7 @@ const LocationSelect = ({
             className={clsx('h-full mask-y-from-80% mask-y-to-100%', className)}
             direction="vertical"
             onSlideChange={(swiper) => handleSlideChange(swiper.realIndex)}
-            {...otherProps}
+            {...restProps}
         >
             {options.map((option) => (
                 <SwiperSlide
@@ -63,4 +63,4 @@ const LocationSelect = ({
     )
 }
 
-export default LocationSelect
+export default memo(LocationSelect)

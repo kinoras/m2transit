@@ -1,13 +1,13 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import type { ComponentProps } from 'react'
 
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
 
-import type { Direction, LocationId } from '@/types/direction'
+import type { Direction, Location, LocationId } from '@/types/direction'
 
 import LocationSelect from './location-select'
 
@@ -27,6 +27,19 @@ const DirectionSelect = ({
     const [originId, setOriginId] = useState<LocationId>()
     const [destinationId, setDestinationId] = useState<LocationId>()
 
+    // Extract all unique origins from directions by removing duplicates
+    const uniqueOrigins = useMemo(() => {
+        const map = new Map(directions.map(({ origin }) => [origin.id, origin]))
+        return [...map.values()]
+    }, [directions])
+
+    // Only show destinations available for the currently selected origin
+    const availableDestinations = useMemo(() => {
+        return directions
+            .filter((dir) => dir.origin.id === originId)
+            .map((dir) => dir.destination)
+    }, [directions, originId])
+
     // Update direction when location selection changes
     useEffect(() => {
         const direction = directions.find(
@@ -41,13 +54,10 @@ const DirectionSelect = ({
             {/* Origin location selector */}
             <LocationSelect
                 className="flex-1"
-                options={[
-                    // Extract all unique origins from directions by removing duplicates
-                    ...new Map(
-                        directions.map((dir) => [dir.origin.id, dir.origin])
-                    ).values()
-                ]}
-                onChange={(loc) => setOriginId(loc?.id)}
+                options={uniqueOrigins}
+                onChange={useCallback((loc?: Location) => {
+                    setOriginId(loc?.id)
+                }, [])}
             />
 
             {/* Arrow icon */}
@@ -59,17 +69,14 @@ const DirectionSelect = ({
 
             {/* Destination location selector */}
             <LocationSelect
-                className="flex-1"
-                options={
-                    // Only show destinations available for the currently selected origin
-                    directions
-                        .filter((dir) => dir.origin.id === originId)
-                        .map((dir) => dir.destination)
-                }
-                onChange={(loc) => setDestinationId(loc?.id)}
+                className="a flex-1"
+                options={availableDestinations}
+                onChange={useCallback((loc?: Location) => {
+                    setDestinationId(loc?.id)
+                }, [])}
             />
         </div>
     )
 }
 
-export default DirectionSelect
+export default memo(DirectionSelect)
