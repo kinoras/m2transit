@@ -13,7 +13,7 @@
         "<THIRD_PARTY_MODULES>",
         "^@/layouts/(.*)$",
         "^@/components/(.*)$",
-        "^@/stores/(.*)$",
+        "^@/store/(.*)$",
         "^@/types/(.*)$",
         "^@/(.*)$",
         "^[./]"
