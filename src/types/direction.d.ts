@@ -1,4 +1,4 @@
-import { Route } from './route'
+import type { Method, Route } from './route'
 
 export type AreaId = number
 export type Area = {
@@ -20,5 +20,5 @@ export type DirectionBase = {
     destination: Location
 }
 export type Direction = DirectionBase & {
-    routes: Route[]
+    routes: Route<Method>[]
 }
