@@ -1,3 +1,5 @@
+import { Route } from './route'
+
 export type AreaId = number
 export type Area = {
     id: AreaId
@@ -12,8 +14,11 @@ export type Location = {
 }
 
 export type DirectionId = number
-export type Direction = {
+export type DirectionBase = {
     id: DirectionId
     origin: Location
     destination: Location
+}
+export type Direction = DirectionBase & {
+    routes: Route[]
 }
