@@ -1,4 +1,7 @@
 import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
+
+import Bootstrapper from '@/store/Bootstrapper'
 
 import './globals.css'
 
@@ -9,12 +12,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
     children
-}: Readonly<{
-    children: React.ReactNode
-}>) {
+}: Readonly<{ children: ReactNode }>) {
     return (
         <html lang="zh-tw">
-            <body>{children}</body>
+            <body>
+                <Bootstrapper />
+                {children}
+            </body>
         </html>
     )
 }
