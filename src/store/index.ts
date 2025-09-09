@@ -25,8 +25,13 @@ export const useStore = create<State>()(
 
             // Volatile
             selectedDirectionId: undefined,
+            activeMethod: 'Shuttle',
+
+            // Actions
             setSelectedDirectionId: (selectedDirectionId) =>
-                set((state) => ({ ...state, selectedDirectionId }))
+                set((state) => ({ ...state, selectedDirectionId })),
+            setActiveMethod: (activeMethod) =>
+                set((state) => ({ ...state, activeMethod }))
         }),
         {
             name: 'storage',

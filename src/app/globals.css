@@ -8,7 +8,7 @@
     --background: light-dark(var(--color-zinc-100), var(--color-zinc-900));
     --background-card: light-dark(var(--color-white), var(--color-zinc-800));
 
-    --foreground: light-dark(var(--color-zinc-900), var(--color-zinc-50));
+    --foreground: light-dark(var(--color-zinc-950), var(--color-zinc-50));
     --foreground-danger: light-dark(var(--color-red-500), var(--color-red-400));
 }
 
@@ -20,6 +20,7 @@
     --color-primary: var(--foreground);
     --color-secondary: color-mix(in oklab, var(--foreground) 60%, transparent);
     --color-tertiary: color-mix(in oklab, var(--foreground) 30%, transparent);
+    --color-inactive: color-mix(in oklab, var(--foreground) 50%, transparent);
     --color-danger: var(--foreground-danger);
 
     /* Radius */

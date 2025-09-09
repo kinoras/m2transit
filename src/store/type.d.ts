@@ -1,4 +1,5 @@
 import type { Direction, DirectionId } from '@/types/direction'
+import type { Method } from '@/types/route'
 
 export type PersistedItem<T> = {
     data: T
@@ -13,4 +14,6 @@ export type State = {
     // Volatile
     selectedDirectionId?: DirectionId
     setSelectedDirectionId: (selectedDirectionId?: DirectionId) => void
+    activeMethod: Method
+    setActiveMethod: (activeMethod?: Method) => void
 }

@@ -11,6 +11,8 @@ type ShuttleSection = SectionBase
 
 type SectionByMethod = {
     Shuttle: ShuttleSection
+    // Bus: ...
+    // Metro: ...
 }
 
 export type Method = keyof SectionByMethod
