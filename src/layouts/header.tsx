@@ -23,7 +23,11 @@ const Header = ({ className, ...restProps }: HeaderProps) => {
 
     return (
         <header
-            className={clsx('sticky top-0 z-10 p-4', className)}
+            className={clsx(
+                'fixed inset-x-0 top-0 z-10 p-4',
+                'has-backdrop before:-bottom-2 before:bg-gradient-to-b before:mask-linear-180',
+                className
+            )}
             {...restProps}
         >
             <DirectionSelect
