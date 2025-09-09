@@ -9,7 +9,7 @@ import type { Method } from '@/types/route'
 
 import MethodTabsItem from './item'
 
-const methods: Readonly<Method[]> = ['Shuttle']
+const methods: Readonly<Method[]> = ['Shuttle', 'Bus', 'Metro']
 
 type MethodTabsProps = Omit<ComponentProps<'ul'>, 'onChange'> & {
     /** Currently selected transit method. */
