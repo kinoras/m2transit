@@ -23,6 +23,29 @@ export const groupRoutesByMethod = (routes: Route<Method>[]): GroupedRoutes => {
 }
 
 /**
+ * Splits a bus route name into its base (prefix characters + number) and suffix (trailing characters).
+ *
+ * If no suffix is found, the entrie name is returned as the base.
+ *
+ * @param routeName - The route name to split.
+ * @returns A tuple containing the base and the suffix.
+ */
+export const splitBusRouteName = (
+    routeName: string
+): [base: string, suffix: string] => {
+    // Simplify bus route name
+    const _routeName = routeName.replace(/(幹線|專車)/g, '').trim()
+
+    // Find the suffix (i.e., characters following the digits)
+    const regex = /(?<=\d)[^\d]+$/
+    const match = _routeName.match(regex)
+
+    return match
+        ? [_routeName.slice(0, match.index), match[0]] // Base + suffix
+        : [_routeName, ''] // No suffix found
+}
+
+/**
  * Converts seconds to minutes (rounded).
  *
  * @param seconds - The number of seconds to convert.

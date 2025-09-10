@@ -2,6 +2,7 @@ import type { ComponentProps } from 'react'
 
 import type { Method, Section } from '@/types/route'
 
+import BusSectionMeta from './bus'
 import ShuttleSectionMeta from './shuttle'
 
 type SectionMetaProps = ComponentProps<'div'> & {
@@ -14,7 +15,12 @@ type SectionMetaProps = ComponentProps<'div'> & {
 const SectionMeta = ({ method, section, ...restProps }: SectionMetaProps) => {
     switch (method) {
         case 'Bus':
-            return null // TODO: Section meta for bus.
+            return (
+                <BusSectionMeta
+                    section={section as Section<'Bus'>}
+                    {...restProps}
+                />
+            )
         case 'Shuttle':
             return (
                 <ShuttleSectionMeta

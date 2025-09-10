@@ -15,17 +15,21 @@
 @theme {
     /* Background colors */
     --color-card: light-dark(var(--color-white), var(--color-zinc-800));
+    --color-card-elevated: light-dark(
+        color-mix(in oklab, var(--color-zinc-100) 87.5%, transparent),
+        color-mix(in oklab, var(--color-zinc-700) 75%, transparent)
+    );
 
     /* Forground colors */
     --color-primary: var(--foreground);
-    --color-secondary: color-mix(in oklab, var(--foreground) 60%, transparent);
-    --color-tertiary: color-mix(in oklab, var(--foreground) 30%, transparent);
-    --color-inactive: color-mix(in oklab, var(--foreground) 50%, transparent);
+    --color-secondary: color-mix(in oklab, var(--foreground) 55%, transparent);
+    --color-tertiary: color-mix(in oklab, var(--foreground) 12.5%, transparent);
+    --color-inactive: color-mix(in oklab, var(--foreground) 40%, transparent);
     --color-danger: var(--foreground-danger);
 
     /* Radius */
     --radius-primary: var(--radius-2xl);
-    --radius-secondary: var(--radius-xl);
+    --radius-secondary: var(--radius-lg);
 }
 
 body {
