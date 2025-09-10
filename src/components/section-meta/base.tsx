@@ -1,18 +1,18 @@
 import type { ComponentProps } from 'react'
 
-import type { Section } from '@/types/route'
+import type { SectionBase } from '@/types/route'
 
 import { secondsToMinutes } from '@/lib/utils'
 
-type ShuttleSectionMetaProps = ComponentProps<'div'> & {
-    /** Shuttle section data. */
-    section: Section<'Shuttle'>
+type SectionMetaBaseProps = ComponentProps<'div'> & {
+    /** Base section data. */
+    section: SectionBase
 }
 
-const ShuttleSectionMeta = ({
+const SectionMetaBase = ({
     section: { origin, destination, duration },
     ...restProps
-}: ShuttleSectionMetaProps) => {
+}: SectionMetaBaseProps) => {
     return (
         <div {...restProps}>
             {/* Origin station */}
@@ -27,4 +27,4 @@ const ShuttleSectionMeta = ({
     )
 }
 
-export default ShuttleSectionMeta
+export default SectionMetaBase

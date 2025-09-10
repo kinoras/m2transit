@@ -1,4 +1,4 @@
-type SectionBase = {
+export type SectionBase = {
     /** Origin station */
     origin: string
     /** Destination station */

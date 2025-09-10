@@ -4,7 +4,7 @@ import clsx from 'clsx'
 
 import type { Method, Section } from '@/types/route'
 
-import SectionMeta from './section-meta'
+import SectionMeta from '../section-meta'
 
 type SectionEntryProps<M extends Method> = ComponentProps<'div'> & {
     /** The method of the belonging route. */
