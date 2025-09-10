@@ -11,14 +11,22 @@ export const metroRoutes: Route<'Metro'>[] = [
                 origin: '台大醫院',
                 directions: ['象山', '大安'],
                 destination: '中正紀念堂',
+                transferTime: 0,
                 duration: 120,
+                _LineID: 'R',
+                _StationID: 'R09',
+                _DestinationStationIDs: ['R02', 'R05']
             },
             {
                 lineName: '松山新店線',
                 origin: '中正紀念堂',
                 directions: ['新店'],
                 destination: '公館',
+                transferTime: 60,
                 duration: 360,
+                _LineID: 'G',
+                _StationID: 'G10',
+                _DestinationStationIDs: ['G01']
             }
         ]
     },
@@ -32,14 +40,22 @@ export const metroRoutes: Route<'Metro'>[] = [
                 origin: '善導寺',
                 directions: ['頂埔', '亞東醫院'],
                 destination: '西門',
+                transferTime: 0,
                 duration: 240,
+                _LineID: 'BL',
+                _StationID: 'BL13',
+                _DestinationStationIDs: ['BL01', 'BL05']
             },
             {
                 lineName: '松山新店線',
                 origin: '西門',
                 directions: ['新店'],
                 destination: '公館',
+                transferTime: 60,
                 duration: 540,
+                _LineID: 'G',
+                _StationID: 'G12',
+                _DestinationStationIDs: ['G01']
             }
         ]
     },
@@ -53,14 +69,22 @@ export const metroRoutes: Route<'Metro'>[] = [
                 origin: '善導寺',
                 directions: ['南港展覽館', '昆陽'],
                 destination: '忠孝復興',
+                transferTime: 0,
                 duration: 240,
+                _LineID: 'BL',
+                _StationID: 'BL13',
+                _DestinationStationIDs: ['BL23', 'BL21']
             },
             {
                 lineName: '文湖線',
                 origin: '忠孝復興',
                 directions: ['動物園'],
                 destination: '科技大樓',
+                transferTime: 300,
                 duration: 180,
+                _LineID: 'BR',
+                _StationID: 'BR10',
+                _DestinationStationIDs: ['BR01']
             }
         ]
     },
@@ -74,14 +98,22 @@ export const metroRoutes: Route<'Metro'>[] = [
                 origin: '公館',
                 directions: ['松山'],
                 destination: '中正紀念堂',
+                transferTime: 0,
                 duration: 360,
+                _LineID: 'G',
+                _StationID: 'G07',
+                _DestinationStationIDs: ['G19']
             },
             {
                 lineName: '淡水信義線',
                 origin: '中正紀念堂',
                 directions: ['淡水', '北投'],
                 destination: '台大醫院',
+                transferTime: 60,
                 duration: 120,
+                _LineID: 'R',
+                _StationID: 'R08',
+                _DestinationStationIDs: ['R28', 'R22']
             }
         ]
     },
@@ -95,14 +127,22 @@ export const metroRoutes: Route<'Metro'>[] = [
                 origin: '公館',
                 directions: ['松山'],
                 destination: '西門',
+                transferTime: 0,
                 duration: 540,
+                _LineID: 'G',
+                _StationID: 'G07',
+                _DestinationStationIDs: ['G19']
             },
             {
                 lineName: '板南線',
                 origin: '西門',
                 directions: ['南港展覽館', '昆陽'],
                 destination: '善導寺',
+                transferTime: 60,
                 duration: 240,
+                _LineID: 'BL',
+                _StationID: 'BL11',
+                _DestinationStationIDs: ['BL23', 'BL21']
             }
         ]
     },
@@ -116,14 +156,22 @@ export const metroRoutes: Route<'Metro'>[] = [
                 origin: '科技大樓',
                 directions: ['南港展覽館'],
                 destination: '忠孝復興',
+                transferTime: 0,
                 duration: 180,
+                _LineID: 'BR',
+                _StationID: 'BR08',
+                _DestinationStationIDs: ['BR24']
             },
             {
                 lineName: '板南線',
                 origin: '忠孝復興',
                 directions: ['頂埔', '亞東醫院'],
                 destination: '善導寺',
+                transferTime: 300,
                 duration: 240,
+                _LineID: 'BL',
+                _StationID: 'BL15',
+                _DestinationStationIDs: ['BL01', 'BL05']
             }
         ]
     }

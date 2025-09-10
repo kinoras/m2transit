@@ -11,7 +11,8 @@ export const busRoutes: Route<'Bus'>[] = [
                 routeName: '208',
                 direction: '新店',
                 destination: '捷運公館站',
-                duration: 1200
+                duration: 1200,
+                _StopUID: 'TPE19372'
             }
         ]
     },
@@ -25,7 +26,8 @@ export const busRoutes: Route<'Bus'>[] = [
                 routeName: '671',
                 direction: '景美女中',
                 destination: '捷運公館站',
-                duration: 1800
+                duration: 1800,
+                _StopUID: 'TPE17862'
             }
         ]
     },
@@ -39,7 +41,8 @@ export const busRoutes: Route<'Bus'>[] = [
                 routeName: '和平幹線',
                 direction: '萬芳社區',
                 destination: '復興南路口',
-                duration: 1200
+                duration: 1200,
+                _StopUID: 'TPE43191'
             }
         ]
     },
@@ -53,7 +56,8 @@ export const busRoutes: Route<'Bus'>[] = [
                 routeName: '295',
                 direction: '富德',
                 destination: '台大國青大樓',
-                duration: 1500
+                duration: 1500,
+                _StopUID: 'TPE38092'
             }
         ]
     },
@@ -67,7 +71,8 @@ export const busRoutes: Route<'Bus'>[] = [
                 routeName: '295副',
                 direction: '富德',
                 destination: '基隆長興街口',
-                duration: 1680
+                duration: 1680,
+                _StopUID: 'TPE202775'
             }
         ]
     },
@@ -81,7 +86,8 @@ export const busRoutes: Route<'Bus'>[] = [
                 routeName: '208',
                 direction: '大直',
                 destination: '開南中學',
-                duration: 1200
+                duration: 1200,
+                _StopUID: 'TPE19301'
             }
         ]
     },
@@ -95,7 +101,8 @@ export const busRoutes: Route<'Bus'>[] = [
                 routeName: '和平幹線',
                 direction: '台北車站',
                 destination: '台大醫院',
-                duration: 1200
+                duration: 1200,
+                _StopUID: 'TPE43170'
             }
         ]
     }

@@ -14,13 +14,25 @@ type BusSection = SectionBase & {
     routeName: string
     /** Destination stops of the bus route */
     direction: string
+} & {
+    // TDX fields
+    _StopUID: string
 }
+
+export type MetroLine = 'BR' | 'R' | 'G' | 'O' | 'BL' | 'Y'
 
 type MetroSection = SectionBase & {
     /** Full name of the metro line */
     lineName: string
     /** Destination stations of the metro line */
     directions: string[]
+    /** Time required to transfer from the previous section (in seconds) */
+    transferTime: number
+} & {
+    // TDX fields
+    _LineID: MetroLine
+    _StationID: string
+    _DestinationStationIDs: string[]
 }
 
 type SectionByMethod = {
