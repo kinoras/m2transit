@@ -2,9 +2,9 @@ import type { ComponentProps } from 'react'
 
 import clsx from 'clsx'
 
-import type { Method, Section } from '@/types/route'
+import SectionMeta from '@/components/section-meta'
 
-import SectionMeta from '../section-meta'
+import type { Method, Section } from '@/types/route'
 
 type SectionEntryProps<M extends Method> = ComponentProps<'div'> & {
     /** The method of the belonging route. */

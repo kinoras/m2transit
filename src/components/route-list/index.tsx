@@ -28,6 +28,7 @@ const RouteList = <M extends Method>({
                     {sections.map((section, index) => (
                         <SectionEntry
                             key={`${routeId}-${index}`}
+                            className="not-first:mt-3 not-first:border-t not-first:border-tertiary not-first:pt-3"
                             method={method}
                             section={section}
                         />
