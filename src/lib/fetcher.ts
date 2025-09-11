@@ -1,6 +1,7 @@
-import type { Direction } from '@/types/direction'
+import type { ArrivalObject } from '@/types/arrival'
+import type { Direction, DirectionId } from '@/types/direction'
 
-export type CachedResult<T> = {
+type CachedResult<T> = {
     /** The actual data fetched */
     data: T
     /** Cache time-to-live in seconds */
@@ -27,7 +28,7 @@ const extractMaxAge = (headers: Headers): number | undefined => {
 
 /**
  * Fetches directions from API.
- * 
+ *
  * @returns A promise that resolves to a CachedResult object containing directions data and cache TTL.
  */
 export const fetchDirections = async (): Promise<CachedResult<Direction[]>> => {
@@ -35,4 +36,17 @@ export const fetchDirections = async (): Promise<CachedResult<Direction[]>> => {
     const data = await response.json()
     const ttl = extractMaxAge(response.headers)
     return { data, ttl }
+}
+
+/**
+ * Fetches arrival data from API.
+ *
+ * @returns A promise of the returned arrival data.
+ */
+export const fetchArrivals = async (
+    directionId?: DirectionId
+): Promise<ArrivalObject[]> => {
+    const response = await fetch(`/api/arrivals?direction=${directionId}`)
+    const data = await response.json()
+    return data
 }

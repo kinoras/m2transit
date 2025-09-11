@@ -24,7 +24,7 @@ const Main = ({ className, ...restProps }: MainProps) => {
 
     return (
         <main
-            className={clsx('overflow-scroll px-4 pt-39.5', className)}
+            className={clsx('overflow-scroll px-4 pt-39 pb-14', className)}
             {...restProps}
         >
             <RouteList method={activeMethod} routes={routes} />

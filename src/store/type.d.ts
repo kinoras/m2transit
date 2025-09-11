@@ -1,3 +1,4 @@
+import { ArrivalObject } from '@/types/arrival'
 import type { Direction, DirectionId } from '@/types/direction'
 import type { Method } from '@/types/route'
 
@@ -16,4 +17,6 @@ export type State = {
     setSelectedDirectionId: (selectedDirectionId?: DirectionId) => void
     activeMethod: Method
     setActiveMethod: (activeMethod?: Method) => void
+    arrivalData: ArrivalObject[]
+    setArrivalData: (arrivalData?: ArrivalObject[]) => void
 }
