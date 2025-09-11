@@ -1,5 +1,6 @@
 import type { ComponentProps } from 'react'
 
+import type { ArrivalObject } from '@/types/arrival'
 import type { Method, Route } from '@/types/route'
 
 import SectionEntry from './section-entry'
@@ -9,11 +10,23 @@ type RouteListProps<M extends Method> = ComponentProps<'section'> & {
     method: M
     /** The list of routes. */
     routes: Route<M>[]
+    /** Arrival information */
+    arrivals: ArrivalObject[]
+}
+
+// Get section arrivals
+const getArrivals = (
+    arrivals: ArrivalObject[],
+    routeId: number,
+    sectionIndex: number
+) => {
+    return arrivals.find(({ id }) => id === routeId)?.arrivals?.[sectionIndex]
 }
 
 const RouteList = <M extends Method>({
     method,
     routes,
+    arrivals,
     ...restProps
 }: RouteListProps<M>) => {
     return (
@@ -28,9 +41,10 @@ const RouteList = <M extends Method>({
                     {sections.map((section, index) => (
                         <SectionEntry
                             key={`${routeId}-${index}`}
-                            className="not-first:mt-3 not-first:border-t not-first:border-tertiary not-first:pt-3"
+                            className="not-first:border-tertiary not-first:mt-3 not-first:border-t not-first:pt-3"
                             method={method}
                             section={section}
+                            arrivals={getArrivals(arrivals, routeId, index)}
                         />
                     ))}
                 </article>

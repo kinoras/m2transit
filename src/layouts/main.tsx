@@ -18,6 +18,8 @@ const Main = ({ className, ...restProps }: MainProps) => {
 
     const activeMethod = useStore((state) => state.activeMethod)
 
+    const arrivalData = useStore((state) => state.arrivalData)
+
     const routes = groupRoutesByMethod(
         directions?.[selectedDirectionId!]?.routes ?? []
     )[activeMethod]
@@ -27,7 +29,11 @@ const Main = ({ className, ...restProps }: MainProps) => {
             className={clsx('overflow-scroll px-4 pt-39 pb-14', className)}
             {...restProps}
         >
-            <RouteList method={activeMethod} routes={routes} />
+            <RouteList
+                method={activeMethod}
+                routes={routes}
+                arrivals={arrivalData}
+            />
         </main>
     )
 }
