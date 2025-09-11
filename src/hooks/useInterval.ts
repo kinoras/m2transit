@@ -17,7 +17,7 @@ type IntervalApi = {
 
 /**
  * Custom hook for countdown timer functionality.
- * 
+ *
  * Behaviors:
  * - The timer stops after reset.
  * - The timer will NOT stop after restart.

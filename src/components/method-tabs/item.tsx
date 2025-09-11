@@ -22,7 +22,7 @@ const MethodTabsItem = ({
 }: MethodTabsItemProps) => {
     // Get icon and display name from configuration
     const { icon, name } = methodLabels[method]
-    
+
     return (
         <li
             className={clsx(

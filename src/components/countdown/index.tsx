@@ -3,9 +3,9 @@
 import type { ComponentProps } from 'react'
 
 import {
-    faRotateRight,
     faPause,
-    faPlay
+    faPlay,
+    faRotateRight
 } from '@fortawesome/free-solid-svg-icons'
 import clsx from 'clsx'
 import dayjs from 'dayjs'
