@@ -1,11 +1,22 @@
-import { Method } from '@/types/route'
+import type { Method, Route } from '@/types/route'
 
 import type { ArrivalService } from '@/server/type'
 
-import ShuttleArrivalService from './arrivals-shuttle'
+import shuttleArrivalService from './arrivals-shuttle'
 
 export const arrivalServices: { [M in Method]: ArrivalService<M> } = {
     Bus: async () => [],
     Metro: async () => [],
-    Shuttle: ShuttleArrivalService
+    Shuttle: shuttleArrivalService
+}
+
+export const getArrivalServices = async (route: Route<Method>) => {
+    switch (route.method) {
+        case 'Bus':
+            return arrivalServices.Bus(route as Route<'Bus'>)
+        case 'Metro':
+            return arrivalServices.Metro(route as Route<'Metro'>)
+        case 'Shuttle':
+            return await arrivalServices.Shuttle(route as Route<'Shuttle'>)
+    }
 }

@@ -6,7 +6,7 @@ import { shuttleSchedules } from '@/server/data/schedules-shuttle'
 import { secondsDiff } from '@/server/lib/utils'
 import type { ArrivalService } from '@/server/type'
 
-export const ShuttleArrivalService: ArrivalService<'Shuttle'> = async (
+export const shuttleArrivalService: ArrivalService<'Shuttle'> = async (
     route
 ) => {
     const now = dayjs()
@@ -41,4 +41,4 @@ export const ShuttleArrivalService: ArrivalService<'Shuttle'> = async (
         : [futureArrivals]
 }
 
-export default ShuttleArrivalService
+export default shuttleArrivalService

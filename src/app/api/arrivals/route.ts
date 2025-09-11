@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server'
 import type { DirectionId } from '@/types/direction'
 
 import { directions } from '@/server/data/directions'
-import { arrivalServices } from '@/server/services/arrivals'
+import { getArrivalServices } from '@/server/services/arrivals'
 
 export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams
@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
     const results = await Promise.all(
         routes.map(async (route) => ({
             id: route.id,
-            arrivals: await arrivalServices[route.method](route as any)
+            arrivals: await getArrivalServices(route)
         }))
     )
 

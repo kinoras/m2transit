@@ -12,7 +12,7 @@ type MetroDirectionProps = ComponentProps<'div'> &
 const MetroDirection = ({
     _LineID,
     _StationID,
-    directions: [direction, _],
+    directions: [direction],
     className,
     ...restProps
 }: MetroDirectionProps) => {
