@@ -14,7 +14,7 @@ type FallbackProps = ComponentProps<'p'> & {
 const Fallback = ({ status, className, ...restProps }: FallbackProps) => (
     <p
         className={clsx(
-            'text-inactive pb-px text-lg leading-none',
+            'text-inactive pb-px text-lg leading-none whitespace-nowrap',
             !status && 'animate-pulse', // Undetermined animation
             className
         )}

@@ -36,7 +36,7 @@ const SectionEntry = <M extends Method>({
             {arrivals?.map((arrival, index) => (
                 <ArrivalStatus
                     key={index}
-                    className="shrink-0 basis-20"
+                    className="shrink-0 basis-20 text-right"
                     arrival={arrival}
                     duration={section.duration}
                 />
