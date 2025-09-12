@@ -37,7 +37,11 @@ const Countdown = ({
 
     return (
         <div className={clsx('mx-4', className)} {...restProps}>
-            <CountdownProgress current={remaining} duration={duration} />
+            <CountdownProgress
+                current={remaining}
+                duration={duration}
+                inactive={!counting}
+            />
             <p className="-mx-4 flex h-12 justify-center">
                 <CountdownActionButton
                     className="px-4 text-xs"
