@@ -2,10 +2,11 @@ import type { Method, Route } from '@/types/route'
 
 import type { ArrivalService } from '#/types/base'
 
+import busArrivalService from './arrivals-bus'
 import shuttleArrivalService from './arrivals-shuttle'
 
 export const arrivalServices: { [M in Method]: ArrivalService<M> } = {
-    Bus: async () => [],
+    Bus: busArrivalService,
     Metro: async () => [],
     Shuttle: shuttleArrivalService
 }
