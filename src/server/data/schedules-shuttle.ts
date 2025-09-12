@@ -1,6 +1,6 @@
 import type { RouteId } from '@/types/route'
 
-import type { Time } from '@/server/type'
+import type { Time } from '#/types/base'
 
 type ShuttleSchedules = { [R in RouteId]: Time[] }
 

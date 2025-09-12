@@ -16,6 +16,11 @@
         "^@/store/(.*)$",
         "^@/types/(.*)$",
         "^@/(.*)$",
+        "^#/services/(.*)$",
+        "^#/data/(.*)$",
+        "^#/integration/(.*)$",
+        "^#/types/(.*)$",
+        "^#/(.*)$",
         "^[./]"
     ],
     "importOrderSeparation": true,

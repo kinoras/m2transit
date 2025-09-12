@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 
-import { Time } from '@/server/type'
+import type { Time } from '#/types/base'
 
 dayjs.extend(customParseFormat)
 

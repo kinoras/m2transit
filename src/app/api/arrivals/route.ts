@@ -2,8 +2,9 @@ import type { NextRequest } from 'next/server'
 
 import type { DirectionId } from '@/types/direction'
 
-import { directions } from '@/server/data/directions'
-import { getArrivalServices } from '@/server/services/arrivals'
+import { getArrivalServices } from '#/services/arrivals'
+
+import { directions } from '#/data/directions'
 
 export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams

@@ -1,4 +1,4 @@
-import { directions } from '@/server/data/directions'
+import { directions } from '#/data/directions'
 
 export const revalidate = 604800
 

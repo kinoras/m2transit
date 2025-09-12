@@ -1,6 +1,6 @@
 import type { Method, Route } from '@/types/route'
 
-import type { ArrivalService } from '@/server/type'
+import type { ArrivalService } from '#/types/base'
 
 import shuttleArrivalService from './arrivals-shuttle'
 
