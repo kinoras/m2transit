@@ -16,6 +16,7 @@
         "@fortawesome/free-regular-svg-icons": "^7.0.1",
         "@fortawesome/free-solid-svg-icons": "^7.0.1",
         "@fortawesome/react-fontawesome": "^3.0.2",
+        "@upstash/redis": "^1.35.3",
         "clsx": "^2.1.1",
         "dayjs": "^1.11.18",
         "next": "15.5.2",
