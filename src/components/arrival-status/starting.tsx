@@ -25,13 +25,13 @@ const StartingArrivalStatus = ({
 }: StartingArrivalStatusProps) => (
     <div className={clsx('text-right', className)} {...restProps}>
         {/* Arrival countdown */}
-        {remaining! < 1 ? (
+        {remaining! < 60 ? (
             <StatusText alert>進站中</StatusText> // Apporaching: arrivals within 1 minute
         ) : (
             <MinuteText
                 minutes={secondsToMinutes(remaining!)}
                 suffix="分"
-                alert={remaining! <= 5} // Urgent: arrivals within 5 minutes
+                alert={remaining! <= 300} // Urgent: arrivals within 5 minutes
             />
         )}
         {/* Estimated arrival time at destination */}

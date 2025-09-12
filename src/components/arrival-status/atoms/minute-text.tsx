@@ -24,7 +24,7 @@ const MinuteText = ({
     <p
         className={clsx(
             'my-0.5 h-6 font-semibold',
-            alert && 'text-warning',
+            alert && 'text-danger',
             className
         )}
         {...restProps}
