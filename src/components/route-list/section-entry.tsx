@@ -9,6 +9,8 @@ import type { SectionArrival } from '@/types/arrival'
 import type { Method, Section } from '@/types/route'
 
 type SectionEntryProps<M extends Method> = ComponentProps<'div'> & {
+    /** Index of the section in the route. */
+    index: number
     /** The method of the belonging route. */
     method: M
     /** Section data. */
@@ -18,6 +20,7 @@ type SectionEntryProps<M extends Method> = ComponentProps<'div'> & {
 }
 
 const SectionEntry = <M extends Method>({
+    index: sectionIndex,
     method,
     section,
     arrivals,
@@ -36,9 +39,10 @@ const SectionEntry = <M extends Method>({
             {arrivals?.map((arrival, index) => (
                 <ArrivalStatus
                     key={index}
-                    className="shrink-0 basis-20 text-right"
+                    className="shrink-0 basis-20 text-right whitespace-nowrap"
                     arrival={arrival}
                     duration={section.duration}
+                    succeeding={sectionIndex !== 0}
                 />
             )) ?? (
                 // Fallback when arrival data is unavailable

@@ -42,6 +42,7 @@ const RouteList = <M extends Method>({
                         <SectionEntry
                             key={`${routeId}-${index}`}
                             className="not-first:border-tertiary not-first:mt-3 not-first:border-t not-first:pt-3"
+                            index={index}
                             method={method}
                             section={section}
                             arrivals={getArrivals(arrivals, routeId, index)}
