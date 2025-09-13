@@ -1,9 +1,13 @@
+import { MetroLine } from '@/types/route'
+
 import type { ServiceDay, StationScheduleResponse } from '#/types/tdx-metro'
 
 import { withCache } from '#/lib/cache'
 import { makeURI, toExtendedDaySeconds } from '#/lib/utils'
 
 import { getAuthHeader } from './auth'
+import { getFrequency } from './metro-frequency'
+import { getServiceHours } from './metro-service-hours'
 
 type StationSchedules = number[] // Array of extended day seconds
 
@@ -17,10 +21,10 @@ type StationSchedules = number[] // Array of extended day seconds
  * @param station - TDX StationID field.
  * @param destinations - Array of TDX DestinationStationID fields.
  * @param day - Service day type.
- * @returns Raw station schedule responses from TDX.
+ * @returns Station schedule as an array of extended day seconds.
  */
 export const getStationSchedules = async (
-    line: string,
+    line: MetroLine,
     station: string,
     destinations: string[],
     day: ServiceDay
@@ -34,8 +38,16 @@ export const getStationSchedules = async (
     if (cache) return cache
 
     // Miss: Fetch and process fresh data, cache it, and return
-    const _data = await fetchStationSchedules(line, station, destinations, day)
-    const data = processStationSchedules(_data)
+    const data =
+        line === 'BR'
+            ? await buildStationSchedules(line, station, destinations, day)
+            : await fetchStationSchedules(
+                  line,
+                  station,
+                  destinations,
+                  day
+              ).then(processStationSchedules)
+
     await setCache(data, 86400) // Cache for 1 day
 
     return data
@@ -52,7 +64,7 @@ export const getStationSchedules = async (
  * @throws Error if the API request fails.
  */
 const fetchStationSchedules = async (
-    line: string,
+    line: MetroLine,
     station: string,
     destinations: string[],
     day: ServiceDay
@@ -107,4 +119,45 @@ const processStationSchedules = (
 
     // Remove duplicates and return sorted
     return [...new Set(arrivals)].sort()
+}
+
+/**
+ * Construct station schedules for reference based on frequency and service hours.
+ *
+ * @param line - TDX LineID field.
+ * @param station - TDX StationID field.
+ * @param destinations - Array of TDX DestinationStationID fields.
+ * @param day - Service day type.
+ * @returns Generated schedule as an array of extended day seconds.
+ */
+const buildStationSchedules = async (
+    line: MetroLine,
+    station: string,
+    destinations: string[],
+    day: ServiceDay
+): Promise<StationSchedules> => {
+    // Fetch frequency and service hours
+    const [frequency, { first, last }] = await Promise.all([
+        getFrequency(line, day),
+        getServiceHours(line, station, destinations, day)
+    ])
+
+    const schedules = [] as StationSchedules
+
+    // Start from the first train
+    let time = first
+
+    // Generate schedule by incrementing time
+    while (time <= last) {
+        schedules.push(time)
+
+        // Find the train frequency for current time
+        const interval = frequency.find(({ from }) => time >= from)?.frequency
+        // Handle exception and prevent infinite loops
+        if (!interval || interval === 0) break
+
+        time += interval
+    }
+
+    return schedules
 }

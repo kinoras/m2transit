@@ -25,3 +25,37 @@ export type StationScheduleResponse = {
     UpdateTime: string
     VersionID: number
 }
+
+export type PeakFlag =
+    | '0' // Off-peak hours
+    | '1' // Peak hours
+
+export type FrequencyResponse = {
+    TrainType: number
+    /** Array of time periods with corresponding frequency data. */
+    Headways: {
+        PeakFlag: PeakFlag
+        /** Start time in `HH:mm` format. */
+        StartTime: string
+        /** End time in `HH:mm` format. */
+        EndTime: string
+        /** Lower bound of frequency in minutes. */
+        MinHeadwayMins: number
+        /** Upper bound of frequency in minutes. */
+        MaxHeadwayMins: number
+    }[]
+    SrcUpdateTime: string
+    UpdateTime: string
+    VersionID: number
+}
+
+export type ServiceHoursResponse = {
+    TrainType: number
+    /** Time of the first train `HH:mm` format. */
+    FirstTrainTime: string
+    /** Time of the last train `HH:mm` format. */
+    LastTrainTime: string
+    SrcUpdateTime: string
+    UpdateTime: string
+    VersionID: number
+}

@@ -94,3 +94,15 @@ export const toExtendedDateAndSeconds = (
         ? [day.subtract(1, 'day').format('YYYY-MM-DD'), seconds] // Use the date of the previous day
         : [day.format('YYYY-MM-DD'), seconds]
 }
+
+/**
+ * Performs linear interpolation between two numbers.
+ *
+ * @param a - Starting value.
+ * @param b - Ending value.
+ * @param fraction - The interpolation fraction, default to 0.25.
+ * @returns The interpolated value between a and b.
+ */
+export const interpolate = (a: number, b: number, fraction = 0.25): number => {
+    return a + (b - a) * fraction
+}

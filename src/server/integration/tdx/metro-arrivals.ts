@@ -1,5 +1,7 @@
 import dayjs from 'dayjs'
 
+import type { MetroLine } from '@/types/route'
+
 import { ServiceDay } from '#/types/tdx-metro'
 
 import { toExtendedDateAndSeconds } from '#/lib/utils'
@@ -16,7 +18,7 @@ import { getStationSchedules } from './metro-schedules'
  * @returns The Unix timestamp of the next train arrival, or `undefined` if server over.
  */
 export const computeMetroArrival = async (
-    line: string,
+    line: MetroLine,
     station: string,
     destinations: string[],
     timestamp: number
