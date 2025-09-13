@@ -26,10 +26,11 @@ const Main = ({ className, ...restProps }: MainProps) => {
 
     return (
         <main
-            className={clsx('overflow-scroll px-4 pt-39 pb-14', className)}
+            className={clsx('pt-safe-or-2 pb-safe px-safe-offset-4', className)}
             {...restProps}
         >
             <RouteList
+                className="pt-37 pb-14"
                 method={activeMethod}
                 routes={routes}
                 arrivals={arrivalData}
