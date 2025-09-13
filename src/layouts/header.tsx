@@ -25,13 +25,14 @@ const Header = ({ className, ...restProps }: HeaderProps) => {
         <header
             className={clsx(
                 'fixed inset-x-0 top-0 z-10 p-4',
+                'pt-safe-or-2 px-safe-offset-4',
                 'has-backdrop before:-bottom-2 before:bg-gradient-to-b before:mask-linear-180',
                 className
             )}
             {...restProps}
         >
             <DirectionSelect
-                className="bg-card/80 rounded-primary h-17 py-0.5 shadow-lg/5 backdrop-blur-xl dark:shadow-lg/25"
+                className="bg-card/80 rounded-primary h-17 py-0.5 shadow-lg/5 backdrop-blur-xl dark:shadow-lg/25 mt-2"
                 directions={directions}
                 onChange={(dir) => setSelectedDirectionId(dir?.id)}
             />
