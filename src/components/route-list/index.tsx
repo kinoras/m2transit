@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import type { ComponentProps } from 'react'
 
 import type { ArrivalObject } from '@/types/arrival'
@@ -54,4 +55,4 @@ const RouteList = <M extends Method>({
     )
 }
 
-export default RouteList
+export default memo(RouteList)

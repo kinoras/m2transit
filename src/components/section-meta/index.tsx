@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import type { ComponentProps } from 'react'
 
 import type { Method, Section } from '@/types/route'
@@ -39,4 +40,4 @@ const SectionMeta = ({ method, section, ...restProps }: SectionMetaProps) => {
     }
 }
 
-export default SectionMeta
+export default memo(SectionMeta)

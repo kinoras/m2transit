@@ -1,5 +1,6 @@
 'use client'
 
+import { memo } from 'react'
 import type { ComponentProps } from 'react'
 
 import {
@@ -63,4 +64,4 @@ const Countdown = ({
     )
 }
 
-export default Countdown
+export default memo(Countdown)
