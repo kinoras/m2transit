@@ -15,7 +15,7 @@ const StatusText = ({
 }: StatusTextProps) => (
     <p
         className={clsx(
-            'mb-1 h-6 text-xl font-semibold',
+            'mb-1 h-6 text-lg font-semibold',
             alert && 'text-danger',
             className
         )}
