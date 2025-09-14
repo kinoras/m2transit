@@ -1,9 +1,9 @@
-import dayjs from 'dayjs'
-import customParseFormat from 'dayjs/plugin/customParseFormat'
+import _dayjs from 'dayjs'
 
 import type { Time } from '#/types/base'
 
-dayjs.extend(customParseFormat)
+// Dayjs with default timezone set
+import dayjs from '#/lib/dayjs'
 
 /**
  * Computes the time difference in seconds between two time strings in 'HH:mm:ss' format.
@@ -54,16 +54,20 @@ export const makeURI = (
  * Useful for handling times that cross midnight.
  *
  * @param timeString - Time string in HH:mm:ss format
+ * @param zoneAware - Whether the time string is in a different time zone.
  * @param extend - Hour extension value. Default to `3` (i.e., time from 03:00 - 26:59).
  * @returns Total seconds from start of the extended day.
  */
 export const toExtendedDaySeconds = (
     timeString: string,
+    zoneAware: boolean = false,
     extension: number = 3
 ): [seconds: number, extended: boolean] => {
     // Parse time strings to dayjs objects
     const format = 'HH:mm:ss'
-    const time = dayjs(timeString, format)
+    const time = zoneAware
+        ? dayjs(timeString, format)
+        : _dayjs(timeString, format)
 
     // Calculate seconds since the start of the day
     const daySeconds = time.diff(time.startOf('day'), 'seconds')
@@ -79,16 +83,22 @@ export const toExtendedDaySeconds = (
  * Useful for processing overnight time with proper date handling.
  *
  * @param day - dayjs object representing the datetime.
+ * @param zoneAware - Whether the time string is in a different time zone.
  * @param extension - Hour extension value. Default to `3`.
  * @returns A tuple containing the date string and the total seconds from start of the extended day.
  */
 export const toExtendedDateAndSeconds = (
-    day: dayjs.Dayjs,
+    day: _dayjs.Dayjs,
+    zoneAware: boolean = false,
     extension: number = 3
 ): [date: string, seconds: number] => {
     // Compute the extended day seconds
     const timeString = day.format('HH:mm:ss')
-    const [seconds, extended] = toExtendedDaySeconds(timeString, extension)
+    const [seconds, extended] = toExtendedDaySeconds(
+        timeString,
+        zoneAware,
+        extension
+    )
 
     return extended // See if the time is extended (early morning hours)
         ? [day.subtract(1, 'day').format('YYYY-MM-DD'), seconds] // Use the date of the previous day
