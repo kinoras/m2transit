@@ -9,7 +9,7 @@ _dayjs.extend(customParseFormat)
 
 _dayjs.tz.setDefault(process.env.TIMEZONE)
 
-const dayjs = (...args: any[]) => _dayjs(...args).tz()
+const dayjs = (...args: Parameters<typeof _dayjs>) => _dayjs(...args).tz()
 
 dayjs.unix = (value: number) => _dayjs.unix(value).tz()
 dayjs.duration = _dayjs.duration
