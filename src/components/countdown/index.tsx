@@ -50,7 +50,10 @@ const Countdown = ({
                     onClick={fetchNow}
                     disabled={fetching}
                 />
-                <span className="self-center text-sm tabular-nums">
+                <span
+                    className="self-center text-sm tabular-nums"
+                    suppressHydrationWarning
+                >
                     最後更新：
                     {dayjs.unix(lastFetched).format('YYYY-MM-DD HH:mm:ss')}
                 </span>

@@ -1,10 +1,11 @@
+import { MetroLine } from '@/types/route'
+
 import type { ServiceDay, ServiceHoursResponse } from '#/types/tdx-metro'
 
 import withCache from '#/lib/cache'
 import { makeURI, toExtendedDaySeconds } from '#/lib/utils'
 
 import { getAuthHeader } from './auth'
-import { MetroLine } from '@/types/route'
 
 type ServiceHours = {
     /** Time of the first train in extended day seconds. */

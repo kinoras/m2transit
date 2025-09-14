@@ -1,8 +1,9 @@
-import dayjs from 'dayjs'
-
 import { getBusArrivals } from '@/server/integration/tdx/bus-arrivals'
 
 import type { ArrivalService } from '#/types/base'
+
+// Dayjs with default timezone set
+import dayjs from '#/lib/dayjs'
 
 export const busArrivalService: ArrivalService<'Bus'> = async (route) => {
     try {

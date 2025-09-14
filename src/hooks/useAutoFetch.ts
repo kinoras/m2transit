@@ -41,7 +41,7 @@ export function useAutoFetch(duration: number): AutoFetchApi {
 
     // Internal status
     const [fetching, setExecuting] = useState(false)
-    const [lastFetched, setLastExecution] = useState(-1)
+    const [lastFetched, setLastExecution] = useState(dayjs().unix())
 
     const fetchNow = async () => {
         // Prevent multiple execution

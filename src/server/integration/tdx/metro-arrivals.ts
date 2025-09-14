@@ -1,9 +1,9 @@
-import dayjs from 'dayjs'
-
 import type { MetroLine } from '@/types/route'
 
 import { ServiceDay } from '#/types/tdx-metro'
 
+// Dayjs with default timezone set
+import dayjs from '#/lib/dayjs'
 import { toExtendedDateAndSeconds } from '#/lib/utils'
 
 import { getStationSchedules } from './metro-schedules'

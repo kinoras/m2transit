@@ -1,11 +1,11 @@
-import dayjs from 'dayjs'
-
 import type { Arrival } from '@/types/arrival'
 
 import { shuttleSchedules } from '#/data/schedules-shuttle'
 
 import type { ArrivalService } from '#/types/base'
 
+// Dayjs with default timezone set
+import dayjs from '#/lib/dayjs'
 import { secondsDiff } from '#/lib/utils'
 
 export const shuttleArrivalService: ArrivalService<'Shuttle'> = async (
