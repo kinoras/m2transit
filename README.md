@@ -1,38 +1,80 @@
 # m2transit
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+A transport tracker for NTUers travelling between Downtown Campus and Main Campus.
 
-## Getting Started
+![Hero image](./.github/assets/readme-hero-light.png)
 
-First, run the development server:
+## 🛠 Setup
+
+### Prerequisites
+
+l you have Node.js, npm and Yarn installed.
+
+You will also need to:
+
+- Apply for a TDX account to obtain API credentials
+    - Free tier: 5 API calls per minute
+    - Paid plan: 5 API calls per second (NT$200/month)
+
+- Set up an Upstash Redis database for caching
+    - Alternatively, modify `src/server/lib/cache.ts` to integrate your own caching service
+
+### Environment
+
+After obtaining your credentials, create a local environment file (e.g., `.env.local`) following the format shown in `.env.sample`.
+
+### Commands
 
 ```bash
-npm run dev
-# or
+# Development
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Deployment
+yarn build
+yarn start
+
+# Linting
+yarn format
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will launch at [http://localhost:3000](http://localhost:3000) by default.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚙️ Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+![A screenshot of the app with different components being labeled with numbers.](./.github/assets/readme-usage-light.png)
 
-## Learn More
+1. **Select route**: Swipe up and down to select the origin and destination.
 
-To learn more about Next.js, take a look at the following resources:
+2. **Choose method**: Pick your preferred transport method.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Check arrivals**: See real-time countdown to the next arrivals.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Data refresh**: Manually refresh data or pause auto-updates.
 
-## Deploy on Vercel
+## 📊 Data Source (and Issues)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Shuttle Bus
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The app uses a timetable based on the official shuttle bus schedule from the [NTU General Affairs Office website](https://ga.ntu.edu.tw/general/main_ch/docDetail/1502/322/348/%20) and automatically calculates the time remaining until the next scheduled departure based on the current time.
+
+### Public Bus
+
+The app connects to the [TDX (Transport Data eXchange) API](https://tdx.transportdata.tw/) to retrieve real-time estimated arrival data.
+
+### Metro
+
+The app also connects to the TDX API for metro data. However, since Taipei Metro does not provide a public real-time arrival API, the following workaround is applied:
+
+- **Heavy-capacity lines**: Similar to the shuttle bus approach, it uses the official train timetable to calculate the next train's arrival time.
+
+- **Wenhu Line**: Wenhu Line operates on dynamic scheduling without fixed timetables. Therefore, the app constructs an estimated timetable using the first/last train times and average headway intervals.
+
+**Known Issues**: Since all displayed arrival times are scheduled or estimated times, which don't reflect real-time conditions at all, the app can't account for service delays, disruptions, or schedule modifications.
+
+## 🚀 Future Enhancements
+
+- **Service day detection**: Add external data sources to accurately identify national holidays, rather than relying solely on weekend detection.
+
+- **Auto updates for shuttle timetable**: Periodically retrieve and parse the latest shuttle bus timetables.
+
+- _and more..._
