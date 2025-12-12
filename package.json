@@ -24,6 +24,7 @@
         "react": "~19.1.4",
         "react-dom": "~19.1.4",
         "swiper": "^11.2.10",
+        "tailwindcss-safe-area": "^1.2.0",
         "zustand": "^5.0.9"
     },
     "devDependencies": {
