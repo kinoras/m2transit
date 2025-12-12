@@ -8,7 +8,7 @@ A transport tracker for NTUers travelling between Downtown Campus and Main Campu
 
 ### Prerequisites
 
-l you have Node.js, npm and Yarn installed.
+Make sure you have Node.js, npm and pnpm installed.
 
 You will also need to:
 
@@ -27,14 +27,14 @@ After obtaining your credentials, create a local environment file (e.g., `.env.l
 
 ```bash
 # Development
-yarn dev
+pnpm dev
 
 # Deployment
-yarn build
-yarn start
+pnpm build
+pnpm start
 
 # Linting
-yarn format
+pnpm format
 ```
 
 The application will launch at [http://localhost:3000](http://localhost:3000) by default.
