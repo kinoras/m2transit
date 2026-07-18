@@ -109,10 +109,10 @@ const processStationSchedules = (
     const arrivals = schedules
         // Extract arrival time and convert it into extended day seconds
         .map(({ Timetables }) =>
-            Timetables.map(
-                ({ ArrivalTime }) =>
-                    toExtendedDaySeconds(`${ArrivalTime}:00`)[0]
-            )
+            Timetables.map(({ ArrivalTime, DepartureTime }) => {
+                const timeString = ArrivalTime ?? DepartureTime
+                return toExtendedDaySeconds(`${timeString}:00`)[0]
+            })
         )
         // Merge the arrival times
         .flat()
