@@ -9,13 +9,13 @@ export const metroRoutes: Route<'Metro'>[] = [
             {
                 lineName: '淡水信義線',
                 origin: '台大醫院',
-                directions: ['象山', '大安'],
+                directions: ['廣慈/奉天宮', '大安'],
                 destination: '中正紀念堂',
                 transferTime: 0,
                 duration: 120,
                 _LineID: 'R',
                 _StationID: 'R09',
-                _DestinationStationIDs: ['R02', 'R05']
+                _DestinationStationIDs: ['R01', 'R05']
             },
             {
                 lineName: '松山新店線',
