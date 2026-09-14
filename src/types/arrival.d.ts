@@ -5,7 +5,7 @@ export type ArrivalState =
     | 'AT_DEPOT'
     | 'TRAFFIC_CONTROL'
     | 'SERVICE_OVER'
-    | 'NO_SERVICE'
+    | 'NO_SERVICE' // prettier-ignore
 
 export type Arrival = {
     /** State of arrival. */

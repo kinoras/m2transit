@@ -16,7 +16,7 @@ const LandingTime = ({
     className,
     ...restProps
 }: LandingTimeProps) => (
-    <p className={clsx('text-secondary text-sm', className)} {...restProps}>
+    <p className={clsx('text-sm text-secondary', className)} {...restProps}>
         {dayjs.unix(arrivalTime).add(duration, 'seconds').format('HH:mm')}
         <span> 到</span>
     </p>

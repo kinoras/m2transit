@@ -41,7 +41,7 @@ const MethodTabs = ({
             ))}
             {/* Sliding indicator bar */}
             <div
-                className="bg-primary absolute -bottom-0.25 h-0.5 rounded-full transition duration-300"
+                className="absolute -bottom-0.25 h-0.5 rounded-full bg-primary transition duration-300"
                 style={{
                     width: `${100 / methods.length}%`, // Equal portion for each tab
                     translate: `${100 * activeIndex}%` // Position the indicator at active tab

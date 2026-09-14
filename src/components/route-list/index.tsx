@@ -37,12 +37,12 @@ const RouteList = <M extends Method>({
                 /** Single route = List of sections */
                 <article
                     key={routeId}
-                    className="bg-card rounded-primary mb-4 px-4 py-3"
+                    className="mb-4 rounded-primary bg-card px-4 py-3"
                 >
                     {sections.map((section, index) => (
                         <SectionEntry
                             key={`${routeId}-${index}`}
-                            className="not-first:border-tertiary not-first:mt-3 not-first:border-t not-first:pt-3"
+                            className="not-first:mt-3 not-first:border-t not-first:border-tertiary not-first:pt-3"
                             index={index}
                             method={method}
                             section={section}

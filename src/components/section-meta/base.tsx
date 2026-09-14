@@ -18,9 +18,9 @@ const SectionMetaBase = ({
             {/* Origin station */}
             <h4 className="mb-px text-lg leading-6 font-semibold">{origin}</h4>
             {/* Destination station*/}
-            <p className="text-secondary text-sm">往{destination}</p>
+            <p className="text-sm text-secondary">往{destination}</p>
             {/* Estimated travel duration */}
-            <p className="text-secondary text-sm">
+            <p className="text-sm text-secondary">
                 約 {secondsToMinutes(duration)} 分鐘
             </p>
         </div>

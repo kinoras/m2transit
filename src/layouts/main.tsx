@@ -51,7 +51,7 @@ const Main = ({ className, ...restProps }: MainProps) => {
                 {Object.entries(routes).map(([method, route]) => (
                     <SwiperSlide
                         key={method}
-                        className="pt-safe-or-2 pb-safe px-safe-offset-4 overflow-scroll overscroll-contain"
+                        className="overflow-scroll overscroll-contain pt-safe-or-2 px-safe-offset-4 pb-safe"
                     >
                         <RouteList
                             className="pt-37 pb-14"

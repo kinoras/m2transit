@@ -32,7 +32,7 @@ const Header = ({ className, ...restProps }: HeaderProps) => {
             {...restProps}
         >
             <DirectionSelect
-                className="bg-card/80 rounded-primary mt-2 h-17 py-0.5 shadow-lg/5 backdrop-blur-xl dark:shadow-lg/25"
+                className="mt-2 h-17 rounded-primary bg-card/80 py-0.5 shadow-lg/5 backdrop-blur-xl dark:shadow-lg/25"
                 directions={directions}
                 onChange={(dir) => setSelectedDirectionId(dir?.id)}
             />

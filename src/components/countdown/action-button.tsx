@@ -16,7 +16,7 @@ const CountdownActionButton = ({
 }: CountdownActionButtonProps) => {
     return (
         <button
-            className={clsx('disabled:text-inactive transition', className)}
+            className={clsx('transition disabled:text-inactive', className)}
             {...restProps}
         >
             <FontAwesomeIcon icon={icon} />

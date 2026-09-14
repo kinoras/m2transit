@@ -51,7 +51,7 @@ const LocationSelect = ({
                     key={option.id}
                     className="flex! cursor-pointer flex-col items-center justify-center gap-2"
                 >
-                    <span className="text-secondary text-sm leading-none">
+                    <span className="text-sm leading-none text-secondary">
                         {option.area.name}
                     </span>
                     <span className="text-lg leading-none font-semibold">

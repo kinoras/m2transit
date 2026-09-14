@@ -28,7 +28,7 @@ const MetroDirection = ({
             {/* Station ID in corresponding line color */}
             <span
                 className={clsx(
-                    'rounded-secondary mt-0.5 pb-px leading-7.5 font-semibold',
+                    'mt-0.5 rounded-secondary pb-px leading-7.5 font-semibold',
                     metroStyles[_LineID]
                 )}
             >
@@ -37,7 +37,7 @@ const MetroDirection = ({
             {/* Direction */}
             <span
                 className={clsx(
-                    'text-secondary -mx-1 leading-3.5',
+                    '-mx-1 leading-3.5 text-secondary',
                     direction?.length <= 4 ? 'text-sm' : 'text-xs'
                 )}
             >

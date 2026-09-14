@@ -19,7 +19,7 @@ const BusDirection = ({
     return (
         <div
             className={clsx(
-                'rounded-secondary bg-card-elevated overflow-hidden px-0.5',
+                'overflow-hidden rounded-secondary bg-card-elevated px-0.5',
                 'flex flex-col items-center justify-center gap-1.5',
                 '*:leading-none *:whitespace-nowrap',
                 className
@@ -34,7 +34,7 @@ const BusDirection = ({
                 </span>
             </p>
             {/* Direction */}
-            <p className="text-secondary text-sm">{direction}</p>
+            <p className="text-sm text-secondary">{direction}</p>
         </div>
     )
 }

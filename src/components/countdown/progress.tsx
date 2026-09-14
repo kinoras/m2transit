@@ -20,7 +20,7 @@ const CountdownProgress = ({
 }: CountdownProgressProps) => {
     return (
         <div
-            className={clsx('bg-tertiary h-0.5 rounded-full', className)}
+            className={clsx('h-0.5 rounded-full bg-tertiary', className)}
             {...restProps}
         >
             <div
