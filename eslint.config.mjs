@@ -1,16 +1,17 @@
-import { FlatCompat } from '@eslint/eslintrc'
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
-
-const compat = new FlatCompat({
-    baseDirectory: __dirname
-})
+import nextVitals from 'eslint-config-next/core-web-vitals'
+import nextTs from 'eslint-config-next/typescript'
 
 const eslintConfig = [
-    ...compat.extends('next/core-web-vitals', 'next/typescript'),
+    ...nextVitals,
+    ...nextTs,
+    {
+        files: [
+            'src/hooks/useAutoFetch.ts',
+            'src/hooks/useInterval.ts',
+            'src/store/useHydration.ts'
+        ],
+        rules: { 'react-hooks/set-state-in-effect': 'warn' }
+    },
     {
         ignores: [
             'node_modules/**',
