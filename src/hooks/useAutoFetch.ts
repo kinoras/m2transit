@@ -43,6 +43,14 @@ export function useAutoFetch(duration: number): AutoFetchApi {
     const [fetching, setExecuting] = useState(false)
     const [lastFetched, setLastExecution] = useState(dayjs().unix())
 
+    const {
+        remaining,
+        running: counting,
+        start: resume,
+        stop: pause,
+        restart
+    } = useInterval(duration, () => _setTimerToggle(!_timerToggle))
+
     const fetchNow = async () => {
         // Prevent multiple execution
         if (fetching) return
@@ -64,14 +72,6 @@ export function useAutoFetch(duration: number): AutoFetchApi {
     useEffect(() => {
         fetchNow()
     }, [selectedDirectionId, _timerToggle])
-
-    const {
-        remaining,
-        running: counting,
-        start: resume,
-        stop: pause,
-        restart
-    } = useInterval(duration, () => _setTimerToggle(!_timerToggle))
 
     return {
         fetching,
